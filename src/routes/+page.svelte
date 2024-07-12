@@ -2,6 +2,7 @@
 	import CodeSnippetCard from "../components/CodeSnippetCard.svelte";
 	import { addSnippet, snippetStore } from "$lib/stores/SnippetStore";
 	import type { PageData } from "./$types";
+	import Footer from "../components/Footer.svelte";
 	export let data: PageData;
 
 	let formData: CodeSnippetInput = {
@@ -82,5 +83,7 @@
 				<CodeSnippetCard snippet={snippet} index={index} />
 			{/each}
 		{/if}
+
+		<Footer />
 	</div>
 </div>
