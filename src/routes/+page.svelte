@@ -24,7 +24,7 @@
 				<input
 					class="input rounded-lg"
 					type="text"
-					placeholder="Enter the tittle her..."
+					placeholder="Enter the tittle here..."
 					bind:value={formData.title}
 				>
 			</label>
