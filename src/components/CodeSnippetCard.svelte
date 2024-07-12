@@ -1,6 +1,6 @@
 <script lang="ts">
   import { CodeBlock } from "@skeletonlabs/skeleton";
-  import { deleteSnippet, toggleFavorite } from "../SnippetStore";
+  import { deleteSnippet, toggleFavorite } from "$lib/stores/SnippetStore";
 
   export let snippet: CodeSnippet = {
     title: "",

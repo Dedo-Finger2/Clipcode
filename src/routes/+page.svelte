@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CodeSnippetCard from "../components/CodeSnippetCard.svelte";
-	import { addSnippet, snippetStore } from "../SnippetStore";
+	import { addSnippet, snippetStore } from "$lib/stores/SnippetStore";
 	import type { PageData } from "./$types";
 	export let data: PageData;
 
