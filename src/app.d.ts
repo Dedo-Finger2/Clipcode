@@ -7,12 +7,14 @@ declare namespace App {
 
 interface CodeSnippetInput {
 	title: string;
+	description?: string;
 	language: string;
 	code: string;
 }
 
 interface CodeSnippet {
 	title: string;
+	description?: string;
 	language: string;
 	code: string;
 	favorite: boolean;
