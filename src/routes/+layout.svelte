@@ -20,6 +20,18 @@
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
 	import { storePopup } from '@skeletonlabs/skeleton';
 	storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
+	// Skeleton UI
+	import { AppBar, AppShell } from '@skeletonlabs/skeleton';
 </script>
 
-<slot />
+<AppShell>
+	<!-- Navbar -->
+	<svelte:fragment slot="header">
+		<AppBar>
+			<h3 class="text-left">CodeShare</h3>
+		</AppBar>
+	</svelte:fragment>
+	<!-- Aplicação -->
+	<slot />
+</AppShell>
+
