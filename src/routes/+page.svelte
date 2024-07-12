@@ -13,7 +13,7 @@
 	snippetStore.set(data.snippets)
 </script>
 
-<div class="flex justify-center pb-5">
+<div class="flex justify-center p-5">
 	<div class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
 		<h3 class="text-center py-6 text-3xl">✨ Create a <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Code Snippet </span> ✨</h3>
 		<div class="card p-4 w-full text-token space-y-4 rounded-2xl shadow-md">
