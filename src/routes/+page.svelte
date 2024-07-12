@@ -3,6 +3,9 @@
 	import { addSnippet, snippetStore } from "$lib/stores/SnippetStore";
 	import type { PageData } from "./$types";
 	import Footer from "../components/Footer.svelte";
+	import { createSearchStore, searchHandler } from "$lib/stores/Search";
+	import { onDestroy } from "svelte";
+
 	export let data: PageData;
 
 	let formData: CodeSnippetInput = {
@@ -12,9 +15,21 @@
 		language: "html"
 	}
 
-	snippetStore.set(data.snippets)
+	const searchSnippets = data.snippets.map((codeSnippet) => ({
+		...codeSnippet,
+		searchTerms: `${codeSnippet.title} ${codeSnippet.language}`
+	}));
 
-	$: data.snippets = $snippetStore;
+	const searchStore = createSearchStore(searchSnippets);
+
+	const unsubscribe = searchStore.subscribe((model) => searchHandler(model));
+	
+	onDestroy(() => {
+		unsubscribe();
+	});
+
+	snippetStore.set(data.snippets);
+	
 </script>
 
 <div class="flex justify-center p-5">
@@ -73,8 +88,14 @@
 		</div>
 
 		<hr>
-		<div class="pt-4">
+		<div class="pt-4 flex flex-col gap-4 pb-4">
 			<h2 class="text-2xl">My Code Snippets</h2>
+			<input
+				class="input rounded-xl"
+				type="text"
+				placeholder="Search for snippets..."
+				bind:value={$searchStore.search}
+			>
 		</div>
 		{#if data.snippets.length === 0}
 			<p>There is no snippets here ☹️.</p>

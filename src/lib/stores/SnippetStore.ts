@@ -21,9 +21,7 @@ export function deleteSnippet(index: number) {
 		if (snippetIndex !== index) return snippet;
 	});
 
-	snippetStore.update(() => {
-		return updatedSnippets;
-	});
+	snippetStore.update(() => updatedSnippets);
 }
 
 export function toggleFavorite(index: number) {
