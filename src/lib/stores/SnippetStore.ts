@@ -2,11 +2,11 @@ import { writable, get } from 'svelte/store';
 
 export const snippetStore = writable<CodeSnippet[]>([]);
 
-export function addSnippet({ title, language, code }: CodeSnippetInput) {
+export function addSnippet({ title, description, language, code }: CodeSnippetInput) {
 	const snippets = get(snippetStore);
 
 	snippetStore.update(() => {
-		return [{ title, language, code, favorite: false }, ...snippets];
+		return [{ title, description, language, code, favorite: false }, ...snippets];
 	});
 }
 
