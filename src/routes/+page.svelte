@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CodeSnippetCard from "../CodeSnippetCard.svelte";
+	import { snippetStore } from "../SnippetStore";
 
 	// Variável que já está sendo tratada como uma variável de estado
 	let formData: CodeSnippetInput = {
@@ -7,6 +8,15 @@
 		code: "",
 		language: "html"
 	}
+
+	snippetStore.set([
+		{
+			title: "Hello World in HTML",
+			favorite: false,
+			language: "html",
+			code: "<h1>Hello World!</h1>"
+		}
+	])
 </script>
 
 <div class="flex justify-center p-5">
@@ -51,6 +61,8 @@
 		<div>
 			<h2 class="text-2xl">My Code Snippets</h2>
 		</div>
-		<CodeSnippetCard />
+		{#each $snippetStore as snippet, index}
+			<CodeSnippetCard />
+		{/each}
 	</div>
 </div>
