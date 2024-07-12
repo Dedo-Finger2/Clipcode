@@ -1,14 +1,25 @@
 <!-- Usando typescript como linguagem -->
 <script lang="ts">
   import { CodeBlock } from "@skeletonlabs/skeleton";
+
+  // Pripriedades são variáveis exportadas
+  export let snippet: CodeSnippet = {
+    title: "",
+    code: "",
+    language: "",
+    favorite: false
+  }
+
+  export let index: number;
+
 </script>
 
 <div class="card rounded-2xl">
   <header class="card-header">
-    Title
+    { snippet.title }
     <div class="float-right">
       <button type="button" class="btn btn-sm variant-filled-secondary rounded-md">
-        Favorite
+        { snippet.favorite ? "Unfavorite" : "Favorite" }
       </button>
       <button type="button" class="btn btn-sm variant-filled-error rounded-md">
         X
@@ -16,6 +27,6 @@
     </div>
   </header>
   <section class="p-4">
-    <CodeBlock language={"HTML"} code={"<h1>Hello World!</h1>"} />
+    <CodeBlock language={ snippet.language } code={ snippet.code } />
   </section>
 </div>
