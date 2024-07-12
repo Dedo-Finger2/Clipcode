@@ -12,6 +12,8 @@
 	}
 
 	snippetStore.set(data.snippets)
+
+	$: data.snippets = $snippetStore;
 </script>
 
 <div class="flex justify-center p-5">
@@ -73,8 +75,12 @@
 		<div class="pt-4">
 			<h2 class="text-2xl">My Code Snippets</h2>
 		</div>
-		{#each $snippetStore as snippet, index}
-			<CodeSnippetCard snippet={snippet} index={index} />
-		{/each}
+		{#if data.snippets.length === 0}
+			<p>There is no snippets here ☹️.</p>
+		{:else}
+			{#each $snippetStore as snippet, index}
+				<CodeSnippetCard snippet={snippet} index={index} />
+			{/each}
+		{/if}
 	</div>
 </div>
