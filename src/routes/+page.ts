@@ -1,9 +1,6 @@
 import type { PageLoad } from './$types';
 
-// Precisa se chamar load
 export const load: PageLoad = () => {
-	// Aqui você pode fazer chamadas de APIs para pegar dados e usar em outras partes do projeto!
-
 	return {
 		snippets: [
 			{

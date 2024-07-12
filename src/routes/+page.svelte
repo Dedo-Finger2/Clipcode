@@ -4,7 +4,6 @@
 	import type { PageData } from "./$types";
 	export let data: PageData;
 
-	// Variável que já está sendo tratada como uma variável de estado
 	let formData: CodeSnippetInput = {
 		title: "",
 		code: "",
@@ -14,13 +13,13 @@
 	snippetStore.set(data.snippets)
 </script>
 
-<div class="flex justify-center p-5">
+<div class="flex justify-center pb-5">
 	<div class="grid grid-cols-1 gap-4 min-w-full md:min-w-[750px]">
-		<h3 class="text-center py-6 text-3xl">Create a Code Snippet</h3>
+		<h3 class="text-center py-6 text-3xl">✨ Create a <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">Code Snippet </span> ✨</h3>
 		<div class="card p-4 w-full text-token space-y-4 rounded-2xl shadow-md">
 
 			<label class="label">
-				<span>Snippet Tittle</span>
+				<span>Snippet Title</span>
 				<input
 					class="input rounded-lg"
 					type="text"
@@ -52,14 +51,15 @@
 			</label>
 
 			<button
-				class="btn btn-sm variant-filled-primary rounded-md"
+				class="btn btn-sm variant-filled-primary w-full rounded-md"
 				on:click={() => addSnippet(formData)}>
 				Create Snippet
 			</button>
 
 		</div>
 
-		<div>
+		<hr>
+		<div class="pt-4">
 			<h2 class="text-2xl">My Code Snippets</h2>
 		</div>
 		{#each $snippetStore as snippet, index}

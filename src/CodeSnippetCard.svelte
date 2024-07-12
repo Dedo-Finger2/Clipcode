@@ -1,9 +1,7 @@
-<!-- Usando typescript como linguagem -->
 <script lang="ts">
   import { CodeBlock } from "@skeletonlabs/skeleton";
   import { deleteSnippet, toggleFavorite } from "./SnippetStore";
 
-  // Pripriedades são variáveis exportadas
   export let snippet: CodeSnippet = {
     title: "",
     code: "",
