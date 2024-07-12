@@ -17,10 +17,12 @@ export function addSnippet({ title, description, language, code }: CodeSnippetIn
 export function deleteSnippet(index: number) {
 	const snippets = get(snippetStore);
 
-	snippets.slice(index, 1);
+	const updatedSnippets = snippets.filter((snippet, snippetIndex) => {
+		if (snippetIndex !== index) return snippet;
+	});
 
 	snippetStore.update(() => {
-		return snippets;
+		return updatedSnippets;
 	});
 }
 
