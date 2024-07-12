@@ -5,6 +5,10 @@ export const snippetStore = writable<CodeSnippet[]>([]);
 export function addSnippet({ title, description, language, code }: CodeSnippetInput) {
 	const snippets = get(snippetStore);
 
+	if (title.length === 0) title = 'No Title.';
+	if (description?.length === 0) description = 'No Description.';
+	if (code.length === 0) code = 'No Code.';
+
 	snippetStore.update(() => {
 		return [{ title, description, language, code, favorite: false }, ...snippets];
 	});

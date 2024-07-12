@@ -6,6 +6,7 @@
     title: "",
     code: "",
     language: "",
+    description: "No Description",
     favorite: false
   }
 
@@ -15,7 +16,10 @@
 
 <div class="card rounded-2xl">
   <header class="card-header">
-    { snippet.title }
+    <span class="font-bold">
+      { snippet.title }
+    </span>
+
     <div class="float-right">
       <button
         type="button"
@@ -33,6 +37,11 @@
       </button>
     </div>
   </header>
+  <section class="card-footer">
+    <p class="text-sm text-zinc-400 italic">
+      { snippet.description ?? "No Description." }
+    </p>
+  </section>
   <section class="p-4">
     <CodeBlock language={ snippet.language } code={ snippet.code } />
   </section>

@@ -7,6 +7,7 @@
 	let formData: CodeSnippetInput = {
 		title: "",
 		code: "",
+		description: "",
 		language: "html"
 	}
 
@@ -19,7 +20,7 @@
 		<div class="card p-4 w-full text-token space-y-4 rounded-2xl shadow-md">
 
 			<label class="label">
-				<span>Snippet Title</span>
+				<span>Snippet Title*</span>
 				<input
 					class="input rounded-lg"
 					type="text"
@@ -29,7 +30,7 @@
 			</label>
 
 			<label class="label">
-				<span>Programming Language</span>
+				<span>Programming Language*</span>
 				<select
 					class="select rounded-lg"
 					bind:value={formData.language}
@@ -41,12 +42,22 @@
 			</label>
 
 			<label class="label">
-				<span>Code Snippet</span>
+				<span>Code Snippet*</span>
 				<textarea
 					class="textarea rounded-lg"
 					rows="4"
 					placeholder="Paste your code here..."
 					bind:value={formData.code}
+				></textarea>
+			</label>
+
+			<label class="label">
+				<span>Code Description</span>
+				<textarea
+					class="textarea rounded-lg"
+					rows="4"
+					placeholder="Write about the code here..."
+					bind:value={formData.description}
 				></textarea>
 			</label>
 
